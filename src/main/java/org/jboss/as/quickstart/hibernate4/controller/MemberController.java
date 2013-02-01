@@ -10,6 +10,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -32,11 +33,25 @@ public class MemberController {
 
     private Member newMember;
     private Member searchMember;
+    private List<Member> searchResult;
 
     @Produces
     @Named
     public Member getNewMember() {
         return newMember;
+    }
+
+    @Produces
+    @Named
+    public Member getSearchMember() {
+        return searchMember;
+    }
+
+
+    @Produces
+    @Named
+    public List<Member> getSearchResult() {
+        return searchResult;
     }
 
     public void register() {
@@ -52,22 +67,15 @@ public class MemberController {
         }
     }
 
-    @Produces
-    @Named
-    public Member getSearchMember() {
-        return searchMember;
-    }
 
     public void search() {
         log.info("start search: " + searchMember.getName());
         try {
             memberRegistration.buildIndex();
-            List<Member> result = memberRegistration.search(searchMember.getName());
-            if (result != null && result.size() > 0) {
-                log.info("Get one result:" + result.get(0).getEmail());
+            searchResult = memberRegistration.search(searchMember.getName());
+            if (searchResult != null && searchResult.size() > 0) {
+                log.info("Get one result:" + searchResult.get(0).getEmail());
             }
-            facesContext.addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
         } catch (Exception e) {
             facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Search failed", "Search unsuccessful"));
@@ -78,6 +86,6 @@ public class MemberController {
     public void initNewMember() {
         newMember = new Member();
         searchMember = new Member();
-        searchMember.setName("John");
+        searchResult = new ArrayList<Member>();
     }
 }

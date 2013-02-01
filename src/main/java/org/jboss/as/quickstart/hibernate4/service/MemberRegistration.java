@@ -59,7 +59,7 @@ public class MemberRegistration {
         org.apache.lucene.search.Query query = qb
                 .keyword()
                 .onFields("name")
-                .matching(searchName)
+                .matching(searchName+"*")
                 .createQuery();
         // wrap Lucene query in a javax.persistence.Query
         javax.persistence.Query persistenceQuery =
