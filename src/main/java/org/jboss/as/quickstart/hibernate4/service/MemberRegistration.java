@@ -62,10 +62,13 @@ public class MemberRegistration {
                 .matching(searchName+"*")
                 .createQuery();
         // wrap Lucene query in a javax.persistence.Query
+        log.info(query.toString());
         javax.persistence.Query persistenceQuery =
                 fullTextEntityManager.createFullTextQuery(query, Member.class);
+        log.info("input query:"+ persistenceQuery);
         // execute search
         List result = persistenceQuery.getResultList();
+        log.info("Size of result:"+ result.size());
         //em.getTransaction().commit();
         //em.close();
         return result;
