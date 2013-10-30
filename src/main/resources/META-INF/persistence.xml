@@ -32,7 +32,10 @@
             <property name="hibernate.search.default.indexBase"
                       value="/var/lucene/indexes"/-->
             <property name="hibernate.search.default.directory_provider"
-                                  value="infinispan"/>
+                      value="infinispan"/>
+            <property name="hibernate.search.infinispan.configuration_resourcename"
+                      value="default-hibernatesearch-infinispan.xml"/>
+
             <!-- End add for hibernate search integration-->
         </properties>
     </persistence-unit>

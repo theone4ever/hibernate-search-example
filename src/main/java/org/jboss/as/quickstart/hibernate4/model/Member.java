@@ -16,8 +16,8 @@
  */
 package org.jboss.as.quickstart.hibernate4.model;
 
+import org.hibernate.search.annotations.*;
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
@@ -26,7 +26,6 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import org.hibernate.search.annotations.*;
 
 /*The Model uses JPA Entity as well as Hibernate Validators
  * 
@@ -51,8 +50,6 @@ public class Member implements Serializable {
     private String name;
 
     /** using hibernate4 validators **/
-    @NotNull
-    @NotEmpty
     @Email
     private String email;
 

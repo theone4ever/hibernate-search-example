@@ -71,7 +71,7 @@ public class MemberController {
     public void search() {
         log.info("start search: " + searchMember.getName());
         try {
-            memberRegistration.buildIndex();
+//            memberRegistration.buildIndex();
             searchResult = memberRegistration.search(searchMember.getName());
             if (searchResult != null && searchResult.size() > 0) {
                 log.info("Get one result:" + searchResult.get(0).getEmail());
