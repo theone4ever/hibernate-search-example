@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstart.hibernate4.model;
+package com.keven.search.model;
 
 import org.hibernate.search.annotations.*;
 import org.hibernate.validator.constraints.Email;
@@ -41,6 +41,7 @@ public class Member implements Serializable {
 
     @Id
     @DocumentId
+    @GeneratedValue
     private Long id;
 
     @NotNull
@@ -49,7 +50,7 @@ public class Member implements Serializable {
     @Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
     private String name;
 
-    /** using hibernate4 validators **/
+    /** using search validators **/
     @Email
     private String email;
 
@@ -99,5 +100,9 @@ public class Member implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String toString(){
+        return "Member["+"id:"+id+";name:"+name+"]";
     }
 }

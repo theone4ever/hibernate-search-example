@@ -1,7 +1,7 @@
-package org.jboss.as.quickstart.hibernate4.controller;
+package com.keven.search.controller;
 
-import org.jboss.as.quickstart.hibernate4.model.Member;
-import org.jboss.as.quickstart.hibernate4.service.MemberRegistration;
+import com.keven.search.model.Member;
+import com.keven.search.service.MemberRegistration;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -73,9 +73,6 @@ public class MemberController {
         try {
 //            memberRegistration.buildIndex();
             searchResult = memberRegistration.search(searchMember.getName());
-            if (searchResult != null && searchResult.size() > 0) {
-                log.info("Get one result:" + searchResult.get(0).getEmail());
-            }
         } catch (Exception e) {
             facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Search failed", "Search unsuccessful"));

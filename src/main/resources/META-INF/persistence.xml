@@ -17,13 +17,14 @@
     <persistence-unit name="primary">
         <!-- If you are running in a production environment, add a managed
            data source, this example data source is just for devleopment and testing! -->
-        <!-- The datasource is deployed as WEB-INF/hibernate4-quickstart-ds.xml, you
-           can find it in the source at src/main/webapp/WEB-INF/hibernate4-quickstart-ds.xml -->
-        <jta-data-source>java:jboss/datasources/Hibernate4QuickstartDS</jta-data-source>
+        <!-- The datasource is deployed as WEB-INF/search-quickstart-ds.xml, you
+           can find it in the source at src/main/webapp/WEB-INF/search-quickstart-ds.xml -->
+        <jta-data-source>java:/jdbc/eDiBle</jta-data-source>
         <properties>
             <!-- Properties for Hibernate -->
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 
             <!-- add for hibernate search integration-->
             <!--property name="hibernate.search.default.directory_provider"
@@ -35,6 +36,10 @@
                       value="infinispan"/>
             <property name="hibernate.search.infinispan.configuration_resourcename"
                       value="default-hibernatesearch-infinispan.xml"/>
+            <property name="hibernate.search.default.worker.jms.connection_factory"
+                      value="/ConnectionFactory"/>
+            <property name="hibernate.search.default.worker.jms.queue"
+                      value="jms/hibernatesearch"/>
 
             <!-- End add for hibernate search integration-->
         </properties>

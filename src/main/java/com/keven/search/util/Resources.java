@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstart.hibernate4.util;
+package com.keven.search.util;
 
 import java.util.logging.Logger;
 

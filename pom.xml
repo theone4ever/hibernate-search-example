@@ -97,6 +97,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.jboss.spec</groupId>
+            <artifactId>jboss-javaee-all-6.0</artifactId>
+            <version>3.0.1.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- Import the JPA API, we use provided scope as the API is included
            in JBoss AS 7 -->
         <dependency>
@@ -171,14 +178,11 @@
             <scope>test</scope>
         </dependency>
 
-
-        <!-- add for hibernate search integration-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-search</artifactId>
-            <version>4.1.1.Final</version>
+            <version>4.1.0.Final</version>
         </dependency>
-
         <!-- If using JPA (2), add: -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -189,13 +193,19 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-search-analyzers</artifactId>
-            <version>4.1.1.Final</version>
+            <version>4.1.0.Final</version>
         </dependency>
         <!-- Infinispan integration: -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-search-infinispan</artifactId>
-            <version>4.1.1.Final</version>
+            <version>4.1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>provided</scope>
+            <version>5.1.20</version>
         </dependency>
 
         <!-- End add for hibernate search integration-->
@@ -255,10 +265,8 @@
                     <plugin>
                         <groupId>org.jboss.as.plugins</groupId>
                         <artifactId>jboss-as-maven-plugin</artifactId>
-                        <version>7.1.1.Final</version>
+                        <version>7.5.Final</version>
                         <configuration>
-                            <hostname>136.225.200.132</hostname>
-                            <port>9999</port>
                             <username>keven</username>
                             <password>Er1csson%</password>
                         </configuration>

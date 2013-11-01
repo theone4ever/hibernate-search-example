@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstart.hibernate4.data;
+package com.keven.search.data;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.jboss.as.quickstart.hibernate4.model.Member;
+import com.keven.search.model.Member;
 
 /**
  * @author Madhumita Sadhukhan
