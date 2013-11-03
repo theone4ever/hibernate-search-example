@@ -4,10 +4,12 @@ import org.hibernate.search.backend.impl.jms.AbstractJMSHibernateSearchControlle
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.inject.Inject;
 import javax.jms.MessageListener;
 import org.hibernate.Session;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.logging.Logger;
 
 @MessageDriven(activationConfig = {
         @ActivationConfigProperty(propertyName="destinationType",
@@ -20,6 +22,8 @@ public class MDBSearchController extends AbstractJMSHibernateSearchController
         implements MessageListener {
     @PersistenceContext
     EntityManager em;
+    @Inject
+    private Logger log;
 
     //method retrieving the appropriate session
     protected Session getSession() {
@@ -28,5 +32,11 @@ public class MDBSearchController extends AbstractJMSHibernateSearchController
 
     @Override
     protected void cleanSessionIfNeeded(Session session) {
+    }
+
+    @Override
+    public void onMessage(javax.jms.Message message) {
+        log.info("get a new msg");
+        super.onMessage(message);
     }
 }

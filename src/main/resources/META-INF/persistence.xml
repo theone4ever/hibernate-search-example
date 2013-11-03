@@ -34,13 +34,14 @@
                       value="/var/lucene/indexes"/-->
             <property name="hibernate.search.default.directory_provider"
                       value="infinispan"/>
+            <property name="hibernate.search.​default.​exclusive_index_use"
+                      value="false/"/>
             <property name="hibernate.search.infinispan.configuration_resourcename"
                       value="default-hibernatesearch-infinispan.xml"/>
             <property name="hibernate.search.default.worker.jms.connection_factory"
                       value="/ConnectionFactory"/>
             <property name="hibernate.search.default.worker.jms.queue"
                       value="jms/hibernatesearch"/>
-
             <!-- End add for hibernate search integration-->
         </properties>
     </persistence-unit>
