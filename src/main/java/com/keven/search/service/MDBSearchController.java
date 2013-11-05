@@ -1,14 +1,15 @@
 package com.keven.search.service;
 
+import org.hibernate.Session;
 import org.hibernate.search.backend.impl.jms.AbstractJMSHibernateSearchController;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.inject.Inject;
 import javax.jms.MessageListener;
-import org.hibernate.Session;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @MessageDriven(activationConfig = {
@@ -36,7 +37,7 @@ public class MDBSearchController extends AbstractJMSHibernateSearchController
 
     @Override
     public void onMessage(javax.jms.Message message) {
-        log.info("get a new msg");
+        log.log(Level.INFO, "Get a new msg");
         super.onMessage(message);
     }
 }

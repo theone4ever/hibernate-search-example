@@ -43,6 +43,39 @@
         -->
     </properties>
 
+    <repositories>
+        <repository>
+            <id>nexus-local-repo</id>
+            <url>http://nexus-221.epk.ericsson.se:8081/nexus/content/groups/edible</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>nexus-snapshot-repo</id>
+            <url>http://nexus-221.epk.ericsson.se:8081/nexus/content/repositories/internal.snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-local-repo</id>
+            <url>http://nexus-221.epk.ericsson.se:8081/nexus/content/groups/edible</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
     <dependencyManagement>
         <dependencies>
             <!-- JBoss distributes a complete set of Java EE 6 APIs including
